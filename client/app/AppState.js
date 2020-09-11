@@ -14,6 +14,7 @@ class AppState extends EventEmitter {
   comments = []
   activePost = null
 
+  formstate = true
   activeComments = []
 }
 

@@ -3,12 +3,49 @@ import { postsService } from "../Services/PostsService.js";
 
 //Private
 function _draw() {
-  let posts = ProxyState.posts;
-  console.log(posts);
+  let ptemp = ''
+  ProxyState.posts.forEach(p => ptemp += p.cardtemp)
+  document.getElementById("post-cont").innerHTML= ptemp
+  console.log("drawing")
 }
 
 function _drawactive() {
+  document.getElementById("post-cont").innerHTML= ProxyState.activePost.Active
 
+}
+
+function _drawForm(){
+  document.getElementById("post-cont").innerHTML = `
+  <div class=" d-flex justify-content-center">
+            <form class="form card col-10" onsubmit="app.postsController.addPost()">
+                <div class="form-group">
+                    <label for="title">title</label>
+                    <input class="form-control" type="text" name="title"></input>
+                </div>
+                <div class="form-group">
+                    <label for="imgUrl">imgURL</label>
+                    <input class="form-control" type="url" name="imgUrl"></input>
+                </div>
+                <div class="form-group">
+                    <label for="placeName">placename</label>
+                    <input class="form-control" type="text" name="placeName"></input>
+                </div>
+                <div class="form-group">
+                    <label for="description">description</label>
+                    <input class="form-control" type="text" name="description"></input>
+                </div>
+                <div class="form-group">
+                    <label for="distance">distance</label>
+                    <input class="form-control" type="number" name="distance"></input>
+                </div>
+                <div class="form-group">
+                    <label for="time">time</label>
+                    <input class="form-control" type="text" name="time"></input>
+                </div>
+                <button type="submit" class="btn btn-primary"> go</button>
+            </form>
+        </div>
+  `
 }
 
 //Public
@@ -54,13 +91,18 @@ export default class PostsController {
     }
   }
 
-  focusPost() {
-    try {
-      postsService.focusPost()
-    } catch (error) {
-      console.error(error)
-    }
+  focusPost(_id) {
+    postsService.focusPost(_id)
+    _drawactive()
 
   }
 
+  createpost(){ 
+    ProxyState.formstate = !ProxyState.formstate
+    if(!ProxyState.formstate){
+      _drawForm()
+    }else{
+      _draw()
+    }
+  }
 }
