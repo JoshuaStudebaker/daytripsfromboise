@@ -36,6 +36,7 @@ export class CommentsController extends BaseController {
     try {
       // NOTE NEVER TRUST THE CLIENT TO ADD THE CREATOR ID
       req.body.creatorEmail = req.userInfo.email;
+      req.body.user = req.userInfo.name
       let newComment = await commentsService.create(req.body)
       res.send(newComment);
     } catch (error) {
