@@ -27,9 +27,11 @@ export default class Post{
     return `
     <section class="row p-2 justify-content-center">
     <div class="col-5 text-center">
-      <div class="img-cont d-flex justify-content-center align-items-end" style="background-image: url('${this.imgUrl}');">
+      <div class="img-cont d-flex flex-column justify-content-end align-items-center" style="background-image: url('${this.imgUrl}');">
         <h3 class="text-center text-light">Distance: ${this.distance} ~ Time: ${this.time}</h3>
-      </div>
+        <div class="d-flex justify-content-between align-items-center">
+        <p class= "text-light"><i class="fas fa-arrow-alt-circle-up fa-lg"></i>${this.pVote}<i class="fas fa-arrow-alt-circle-down fa-lg"></i></p></div>
+        </div>
     </div>
     <div class="col-5 card bg-secondary">
       <i class="fa fa-trash text-right m-2" aria-hidden="true"></i>
@@ -38,7 +40,7 @@ export default class Post{
       <h3>${this.placeName}</h3>
       <h6>${this.user}</h6>
     </div>
-    <form class="col-10 card px-2 py-1 mx-2 form-group" onsubmit="app.commentsController.addComment('${this._id}')>
+    <form class="col-10 card px-2 py-1 mx-2 form-group" onsubmit="app.commentsController.addComment('${this._id}')">
         <textarea name="body" id="" cols="10" rows="5"></textarea>
         <button type="submit" class="btn btn-outline-success">sumbit</button>
       </form>
