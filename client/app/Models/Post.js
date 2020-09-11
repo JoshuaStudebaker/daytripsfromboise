@@ -34,7 +34,7 @@ export default class Post{
         </div>
     </div>
     <div class="col-5 card bg-secondary">
-      <i class="fa fa-trash text-right m-2" aria-hidden="true"></i>
+      <i class="fa fa-trash text-right m-2" aria-hidden="true" onclick="app.postsController.removePost('${this._id}')"></i>
       <h1>${this.title}</h1>
       <p>${this.description}</p>
       <h3>${this.placeName}</h3>

@@ -19,7 +19,9 @@ class PostsService {
     ProxyState.activePost = ProxyState.posts.find(p => p._id == _id)
     console.log(ProxyState.activePost)
         }
-  async removePost() {
+  async removePost(_id) {
+    await api.delete(`posts/${_id}`)
+    ProxyState.posts= ProxyState.posts.filter(p => p._id == _id)
   
         }
 }

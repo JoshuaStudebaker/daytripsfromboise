@@ -83,9 +83,9 @@ export default class PostsController {
     }
   }
 
-  removePost() {
+  removePost(_id) {
     try {
-      postsService.removePost()
+      postsService.removePost(_id)
     } catch (error) {
       console.error(error)
     }
