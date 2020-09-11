@@ -27,6 +27,7 @@ export class PostsController extends BaseController {
   async getById(req, res, next) {
     try {
       let post = await postsService.findPostById(req.params.id)
+      res.send(post)
     } catch (error) {
       next(error);
     }
