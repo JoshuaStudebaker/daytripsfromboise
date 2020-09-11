@@ -105,4 +105,9 @@ export default class PostsController {
       _draw()
     }
   }
+
+  reset(){
+    ProxyState.formstate = true
+    _draw()
+  }
 }
