@@ -27,6 +27,7 @@ export default class PostsController {
   }
   addPost() {
     event.preventDefault()
+    console.log("controller")
     let data = event.target
     let nPost = {
       title:  data.title.value,
@@ -38,6 +39,7 @@ export default class PostsController {
       pVote: 0,
     }
     try {
+      console.log(nPost)
       postsService.addPost(nPost)
     } catch (error) {
       console.error(error)
