@@ -2,6 +2,9 @@ import { dbContext } from "../db/DbContext";
 import { BadRequest } from "../utils/Errors";
 
 class PostsService {
+  edit(body) {
+    throw new Error("Method not implemented.");
+  }
   delete(id) {
     throw new Error("Method not implemented.");
   }
