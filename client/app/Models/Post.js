@@ -25,8 +25,8 @@ export default class Post{
 
   get Active(){
     return `
-    <section class="row p-2 justify-content-center">
-    <div class="col-5 text-center">
+    <section class="row p-2 justify-content-center ">
+    <div class="col-5 text-center post-body">
       <div class="img-cont d-flex flex-column justify-content-end align-items-center" style="background-image: url('${this.imgUrl}');">
         <h3 class="text-center text-light">Distance: ${this.distance} ~ Time: ${this.time}</h3>
         <div class="d-flex justify-content-between align-items-center">

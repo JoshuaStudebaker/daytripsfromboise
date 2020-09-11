@@ -21,7 +21,7 @@ class PostsService {
         }
   async removePost(_id) {
     await api.delete(`posts/${_id}`)
-    ProxyState.posts= ProxyState.posts.filter(p => p._id == _id)
+    ProxyState.posts= ProxyState.posts.filter(p => p._id !== _id)
   
         }
 }
