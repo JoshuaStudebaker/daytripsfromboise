@@ -10,7 +10,7 @@ const Post = new Schema(
     distance: { type: Number, required: true },
     time: { type: String, required: true, enum: ['Short', 'Medium', 'Long'] },
     user: { type: String, required: true },
-    pVote: { type: Number, required: true },
+    pVote: { type: Number, required: true, default: 0 },
     creatorEmail: { type: String, required: true }
   },
   { timestamps: true, toJSON: { virtuals: true } }
