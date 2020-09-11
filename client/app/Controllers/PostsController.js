@@ -31,7 +31,7 @@ export default class PostsController {
     let data = event.target
     let nPost = {
       title:  data.title.value,
-      imgURL: data.imgURL.value,
+      imgUrl: data.imgUrl.value,
       placeName: data.placeName.value,
       description: data.description.value,
       distance: data.distance.value,

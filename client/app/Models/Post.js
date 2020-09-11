@@ -1,7 +1,7 @@
 export default class Post{
-  constructor(title, imgURL, placeName, description, distance, time, user, pVote, _id, posttime){
+  constructor(title, imgUrl, placeName, description, distance, time, user, pVote, _id, posttime){
     this.title = title
-    this.imgURL = imgURL
+    this.imgUrl = imgUrl
     this.placeName = placeName
     this.description = description
     this.distance = distance
