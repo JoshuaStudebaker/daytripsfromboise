@@ -20,3 +20,7 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+.shadow{
+  box-shadow: .2em .2em .4em var(--dark);
+}
