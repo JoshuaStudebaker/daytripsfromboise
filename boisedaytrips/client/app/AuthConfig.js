@@ -1,3 +1,3 @@
-export const domain = ''
-export const audience = ''
-export const clientId = ''
+export const domain = "joshua-studebaker.us.auth0.com";
+export const audience = "https://boisedaytrips.com";
+export const clientId = "OzzoCsPN6FQGromxW7YWIaw4mFsd91D6";
