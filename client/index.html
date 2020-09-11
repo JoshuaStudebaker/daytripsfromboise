@@ -48,32 +48,31 @@
         </div>
     </main>
     <section class="contianer-fluid bg-seconday">
-        <div class="row justify-content-center">
-
-            <form class="form card col-10" onsubmit="app.postsContoller.addPost()">
+        <div class=" d-flex justify-content-center">
+            <form class="form card col-10" onsubmit="app.postsController.addPost()">
                 <div class="form-group">
                     <label for="title">title</label>
-                    <input class="form-control" type="title" name="title"></input>
+                    <input class="form-control" type="text" name="title"></input>
                 </div>
                 <div class="form-group">
                     <label for="imgURL">imgURL</label>
-                    <input class="form-control" type="imgURL" name="imgURL"></input>
+                    <input class="form-control" type="url" name="imgURL"></input>
                 </div>
                 <div class="form-group">
                     <label for="placename">placename</label>
-                    <input class="form-control" type="placename" name="placename"></input>
+                    <input class="form-control" type="text" name="placename"></input>
                 </div>
                 <div class="form-group">
                     <label for="description">description</label>
-                    <input class="form-control" type="description" name="description"></input>
+                    <input class="form-control" type="text" name="description"></input>
                 </div>
                 <div class="form-group">
                     <label for="distance">distance</label>
-                    <input class="form-control" type="distance" name="distance"></input>
+                    <input class="form-control" type="number" name="distance"></input>
                 </div>
                 <div class="form-group">
                     <label for="time">time</label>
-                    <input class="form-control" type="time" name="time"></input>
+                    <input class="form-control" type="text" name="time"></input>
                 </div>
                 <button type="submit" class="btn btn-primary"> go</button>
             </form>
