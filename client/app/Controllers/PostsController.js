@@ -32,7 +32,7 @@ export default class PostsController {
     let nPost = {
       title:  data.title.value,
       imgURL: data.imgURL.value,
-      placename: data.placename.value,
+      placeName: data.placeName.value,
       description: data.description.value,
       distance: data.distance.value,
       time: data.time.value,
