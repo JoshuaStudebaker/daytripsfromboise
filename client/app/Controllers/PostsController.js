@@ -26,8 +26,19 @@ export default class PostsController {
     }
   }
   addPost() {
+    event.preventDefault()
+    let data = event.target
+    let nPost = {
+      title:  data.title.value,
+      imgURL: data.imgURL.value,
+      placename: data.placename.value,
+      description: data.description.value,
+      distance: data.distance.value,
+      time: data.time.value,
+      pVote: 0,
+    }
     try {
-      postsService.addPost()
+      postsService.addPost(nPost)
     } catch (error) {
       console.error(error)
     }

@@ -7,8 +7,10 @@ class PostsService {
     let obj = await api.get('posts')
     console.log(obj)
   }
-  async addPost() {
-    ProxyState.posts = [...ProxyState.posts, new Post({ title: Math.random() })]
+  async addPost(nPost) {
+    let obj = await api.post('posts', nPost)
+    let post = new Post(obj)
+    ProxyState.posts = [...ProxyState.posts, post]
   }
   async focusPost() {
   

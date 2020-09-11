@@ -7,7 +7,7 @@ export default class Post{
     this.distance = distance
     this.time = time
     this.user = user
-    this.pVote= pVote
+    this.pVote = pVote
     this._id = _id
     this.posttime = posttime
   }
