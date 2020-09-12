@@ -71,7 +71,7 @@ export default class Post {
         <button type="submit" class="btn btn-outline-success text-light">Add Comment</button>
       </form>
   </section>
-  <section id="comments">placehold commits</section>
+  <section id="comments" class="row d-flex flex-column"></section>
     `;
   }
 }

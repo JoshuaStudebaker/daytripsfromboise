@@ -16,8 +16,8 @@ function _drawactive() {
 
 function _drawForm() {
   document.getElementById("post-cont").innerHTML = `
-  <div class=" d-flex justify-content-center">
-            <form class="form card col-10" onsubmit="app.postsController.addPost()">
+  <div class="row justify-content-center p-4">
+            <form class="form card col-10 my-6 align-self-center bg-primary text-light p-3" onsubmit="app.postsController.addPost()">
                 <div class="form-group">
                     <label for="title">title</label>
                     <input class="form-control" type="text" name="title"></input>
