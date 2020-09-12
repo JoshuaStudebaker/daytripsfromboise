@@ -15,7 +15,17 @@ export class PostsController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post("", this.create)
       .put("/:id", this.edit)
+      .put("/:id/vote", this.editvote)
       .delete("/:id", this.delete);
+  }
+   async editvote(req, res, next) {
+    try {
+      req.body.id = req.params.id;
+      let update = await postsService.editvote(req.body);
+      res.send(update);
+    } catch (error) {
+      next(error);
+    }
   }
   async getAll(req, res, next) {
     try {
@@ -57,6 +67,7 @@ export class PostsController extends BaseController {
 
   async edit(req, res, next) {
     try {
+      req.body.creatorEmail = req.userInfo.email;
       req.body.id = req.params.id;
       let update = await postsService.edit(req.body);
       res.send(update);
