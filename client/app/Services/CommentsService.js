@@ -5,10 +5,10 @@ import { api } from "./AxiosService.js";
 let url = "comments/";
 
 class CommentsService {
-  async likeComment(commentId) {
-    // let res = await api.get(url + commentId)
-    // res.data.voters.foEach()
-  }
+  // async likeComment(commentId) {
+  //   // let res = await api.get(url + commentId)
+  //   // res.data.voters.foEach()
+  // }
   async getComments(postId) {
     console.log(postId);
     let res = await api.get(`posts/${postId}/comments`);
@@ -19,6 +19,18 @@ class CommentsService {
     let res = await api.post("comments/", comment);
     console.log("add", res);
     ProxyState.comments = [...ProxyState.comments, new Comment(res.data)];
+  }
+
+  async likeComment(value, commentId) {
+    console.log(commentId);
+    console.log(ProxyState.comments);
+    let aComment = ProxyState.comments.find((c) => c._id == commentId);
+    console.log(aComment);
+    aComment.cVote += value;
+    let res = await api.put(`comments/${commentId}/vote`, {
+      cVote: aComment.cVote,
+    });
+    ProxyState.comments = ProxyState.comments;
   }
 
   async deleteComment(commentId) {
