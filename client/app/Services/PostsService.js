@@ -29,7 +29,7 @@ class PostsService {
     ProxyState.activePost.pVote = value + ProxyState.activePost.pVote
     let apost = ProxyState.activePost
     console.log(apost)
-    let res = await api.put(`posts/${ProxyState.activePost._id}`, {pVote: apost.pVote})
+    let res = await api.put(`posts/${ProxyState.activePost._id}/vote`, {pVote: apost.pVote})
     console.log(res)
     ProxyState.activePost = ProxyState.activePost
   }
