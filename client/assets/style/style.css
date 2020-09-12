@@ -29,6 +29,11 @@
   background-repeat: no-repeat;
 }
 
-.shadow {
-  box-shadow: 0.2em 0.2em 0.4em var(--dark);
+
+.shadow{
+  box-shadow: .2em .2em .4em var(--dark);
+}
+
+.text-shadow{
+  text-shadow: .1em .1em var(--dark);
 }
