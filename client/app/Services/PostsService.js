@@ -26,9 +26,12 @@ class PostsService {
         }
         
   async vote(value){
-    ProxyState.activePost.pVote += value
-    let apost = ProxyState.activePost._id
-    await api.put(`posts/${apost}`, {pVote: apost.pVote})
+    ProxyState.activePost.pVote = value + ProxyState.activePost.pVote
+    let apost = ProxyState.activePost
+    console.log(apost)
+    let res = await api.put(`posts/${apost._id}`, {pVote: apost.pVote})
+    console.log(res)
+    ProxyState.activePost = ProxyState.activePost
   }
         
 }

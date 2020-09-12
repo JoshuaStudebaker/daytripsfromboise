@@ -13,7 +13,7 @@ export default class Post{
   }
   get cardtemp(){
     return`
-    <div class="card shadow text-white col-3 appcard m-1 card-img" style="background-image: url(${this.imgUrl})" onclick="app.postsController.focusPost('${this._id}')">
+    <div class="card shadow text-white col-3 appcard m-1 card-img order-${this.pVote}" style="background-image: url(${this.imgUrl})" onclick="app.postsController.focusPost('${this._id}')">
         <div class="card-img-overlay">
           <h4 class="card-title">${this.title}</h4>
           <p class="card-text">${this.user}</p>
