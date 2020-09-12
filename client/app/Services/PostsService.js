@@ -24,7 +24,16 @@ class PostsService {
     ProxyState.posts= ProxyState.posts.filter(p => p._id !== _id)
   
         }
+        
+  async vote(value){
+    ProxyState.activePost.pVote = value + ProxyState.activePost.pVote
+    let apost = ProxyState.activePost
+    console.log(apost)
+    let res = await api.put(`posts/${apost._id}`, {pVote: apost.pVote})
+    console.log(res)
+    ProxyState.activePost = ProxyState.activePost
+  }
+        
 }
-
 export const postsService = new PostsService();
 

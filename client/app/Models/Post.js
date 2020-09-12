@@ -5,7 +5,7 @@ export default class Post {
     placeName,
     description,
     distance,
-    time,
+    time,https://github.com/JoshuaStudebaker/daytripsfromboise/pulse
     user,
     pVote,
     _id,
@@ -22,9 +22,10 @@ export default class Post {
     this._id = _id;
     this.posttime = posttime;
   }
-  get cardtemp() {
-    return `
-    <div class="card shadow text-white col-3 appcard m-1 card-img" style="background-image: url(${this.imgUrl})" onclick="app.postsController.focusPost('${this._id}')">
+  get cardtemp(){
+    return`
+    <div class="card shadow text-white col-3 appcard m-1 card-img order-${this.pVote}" style="background-image: url(${this.imgUrl})" onclick="app.postsController.focusPost('${this._id}')">
+
         <div class="card-img-overlay">
           <h4 class="card-title">${this.title}</h4>
           <p class="card-text">${this.user}</p>
@@ -40,7 +41,7 @@ export default class Post {
       <div class="img-cont d-flex flex-column justify-content-end align-items-center" style="background-image: url('${this.imgUrl}');">
         <h3 class="text-center text-light">Distance: ${this.distance} ~ Time: ${this.time}</h3>
         <div class="d-flex justify-content-between align-items-center">
-        <p class= "text-light"><i class="fas fa-arrow-alt-circle-up fa-lg"></i>${this.pVote}<i class="fas fa-arrow-alt-circle-down fa-lg"></i></p></div>
+        <p class= "text-light"><i class="fas fa-arrow-alt-circle-up fa-lg" onclick="app.postsController.vote(1)"></i>${this.pVote}<i class="fas fa-arrow-alt-circle-down fa-lg" onclick="app.postsController.vote(-1)"></i></p></div>
         </div>
     </div>
     <div class="col-5 card bg-secondary shadow">

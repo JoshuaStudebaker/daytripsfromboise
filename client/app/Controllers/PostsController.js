@@ -111,4 +111,8 @@ export default class PostsController {
     ProxyState.formstate = true;
     _draw();
   }
+
+  vote(value){
+    postsService.vote(value)
+  }
 }
