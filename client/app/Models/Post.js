@@ -50,23 +50,23 @@ export default class Post {
   get Active() {
     return `
     <section class="row p-2 justify-content-center ">
-    <div class="col-5 text-center post-body">
+    <div class="col-5 text-center post-body shadow">
       <div class="img-cont d-flex flex-column justify-content-end align-items-center" style="background-image: url('${this.imgUrl}');">
         <h3 class="text-center text-light text-shadow">Distance: ${this.distance} ~ ${this.timeIcon}</h3>
         <div class="d-flex justify-content-between align-items-center">
         <p class= "text-light text-shadow"><i class="fas fa-arrow-alt-circle-up fa-lg" onclick="app.postsController.vote(1)"></i>${this.pVote}<i class="fas fa-arrow-alt-circle-down fa-lg" onclick="app.postsController.vote(-1)"></i></p></div>
         </div>
     </div>
-    <div class="col-5 card bg-secondary shadow">
+    <div class="col-5 card bg-secondary text-light text-shadow shadow">
       <i class="fa fa-trash text-right m-2" aria-hidden="true" onclick="app.postsController.removePost('${this._id}')"></i>
       <h1>${this.title}</h1>
       <p>${this.description}</p>
-      <h3>${this.placeName}</h3>
-      <h6>${this.user}</h6>
+      <h3 class="align-self-end mt-auto p-2 bd-highlight">${this.placeName}</h3>
+      <h6 class="align-self-end mt-auto p-2 bd-highlight">${this.user}</h6>
     </div>
-    <form class="col-10 card px-2 py-1 mx-2 form-group" onsubmit="app.commentsController.addComment('${this._id}')">
+    <form class="col-10 card px-2 py-1 mx-2 form-group bg-primary" onsubmit="app.commentsController.addComment('${this._id}')">
         <textarea name="body" cols="10" rows="5"></textarea>
-        <button type="submit" class="btn btn-outline-success">Add Comment</button>
+        <button type="submit" class="btn btn-outline-success text-light">Add Comment</button>
       </form>
   </section>
   <section id="comments">placehold commits</section>
