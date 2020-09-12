@@ -1,29 +1,40 @@
-export default class Post{
-  constructor({title, imgUrl, placeName, description, distance, time, user, pVote, _id, posttime}){
-    this.title = title
-    this.imgUrl = imgUrl
-    this.placeName = placeName
-    this.description = description
-    this.distance = distance
-    this.time = time
-    this.user = user
-    this.pVote = pVote
-    this._id = _id
-    this.posttime = posttime
+export default class Post {
+  constructor({
+    title,
+    imgUrl,
+    placeName,
+    description,
+    distance,
+    time,https://github.com/JoshuaStudebaker/daytripsfromboise/pulse
+    user,
+    pVote,
+    _id,
+    posttime,
+  }) {
+    this.title = title;
+    this.imgUrl = imgUrl;
+    this.placeName = placeName;
+    this.description = description;
+    this.distance = distance;
+    this.time = time;
+    this.user = user;
+    this.pVote = pVote;
+    this._id = _id;
+    this.posttime = posttime;
   }
   get cardtemp(){
     return`
     <div class="card shadow text-white col-3 appcard m-1 card-img order-${this.pVote}" style="background-image: url(${this.imgUrl})" onclick="app.postsController.focusPost('${this._id}')">
+
         <div class="card-img-overlay">
           <h4 class="card-title">${this.title}</h4>
           <p class="card-text">${this.user}</p>
         </div>
       </div>
-    `
+    `;
   }
 
-
-  get Active(){
+  get Active() {
     return `
     <section class="row p-2 justify-content-center ">
     <div class="col-5 text-center post-body">
@@ -41,11 +52,11 @@ export default class Post{
       <h6>${this.user}</h6>
     </div>
     <form class="col-10 card px-2 py-1 mx-2 form-group" onsubmit="app.commentsController.addComment('${this._id}')">
-        <textarea name="body" id="" cols="10" rows="5"></textarea>
-        <button type="submit" class="btn btn-outline-success">sumbit</button>
+        <textarea name="body" cols="10" rows="5"></textarea>
+        <button type="submit" class="btn btn-outline-success">Add Comment</button>
       </form>
   </section>
   <section id="comments">placehold commits</section>
-    `
+    `;
   }
 }

@@ -4,18 +4,24 @@ import { commentsService } from "../Services/CommentsService.js";
 //Private
 function _drawComments() {
   let template = "";
-  ProxyState.comments.forEach((c) => (template += c.Template));
+  console.log(ProxyState.comments);
+  if (ProxyState.comments) {
+    ProxyState.comments.forEach((c) => (template += c.Template));
+  }
   document.getElementById("comments").innerHTML = template;
 }
 
 //Public
 export default class CommentsController {
   constructor() {
-    this.getComments();
+    ProxyState.on("activePost", this.getComments);
     ProxyState.on("comments", _drawComments);
   }
 
-  getComments(postId) {
+  getComments() {
+    console.log("hello get");
+    let postId = ProxyState.activePost._id;
+    console.log("post id", postId);
     try {
       commentsService.getComments(postId);
     } catch (error) {
@@ -24,13 +30,15 @@ export default class CommentsController {
   }
 
   addComment(postId) {
-    event.preventDefault;
+    event.preventDefault();
     let form = event.target;
+
     let comment = {
       // @ts-ignore
       body: form.body.value,
       parentId: postId,
     };
+    console.log(comment);
     try {
       commentsService.addComment(comment);
     } catch (error) {}

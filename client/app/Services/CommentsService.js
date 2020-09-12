@@ -10,11 +10,14 @@ class CommentsService {
     // res.data.voters.foEach()
   }
   async getComments(postId) {
-    let res = await api.get("comments");
+    console.log(postId);
+    let res = await api.get(`posts/${postId}/comments`);
+    console.log("get service", res);
     ProxyState.comments = res.data.map((c) => new Comment(c));
   }
   async addComment(comment) {
-    let res = await api.post(url, comment);
+    let res = await api.post("comments/", comment);
+    console.log("add", res);
     ProxyState.comments = [...ProxyState.comments, new Comment(res.data)];
   }
 
