@@ -38,10 +38,21 @@ function _drawForm() {
                     <label for="distance">distance</label>
                     <input class="form-control" type="number" name="distance"></input>
                 </div>
-                <div class="form-group">
-                    <label for="time">time</label>
-                    <input class="form-control" type="text" name="time"></input>
-                </div>
+                <div class="form-inline">
+                    <label for="time">time: </label>
+                    <div class="mx-1 justify-contnet-around d-flex align-items-center">
+                    <label for="Short"> <i class="fas fa-hourglass-start"></i></label><br>
+                    <input type="radio" name="time" value="Short">
+                    </div>
+                    <div class="mx-1 justify-contnet-around d-flex align-items-center">
+                    <label for="Medium"> <i class="fas fa-hourglass-half"></i> </label><br>
+                    <input type="radio" name="time" value="Medium">
+                    </div>
+                    <div class="mx-1 justify-contnet-around d-flex align-items-center">
+                    <label for="Long"> <i class="fas fa-hourglass-end"></i></label><br>
+                    <input type="radio" name="time" value="Long">
+                    </div>
+                    </div>
                 <button type="submit" class="btn btn-primary"> go</button>
             </form>
         </div>
