@@ -1,12 +1,12 @@
 export default class Comment {
-  constructor(body, cVote, user, id, parentId, voters = []) {
+  constructor({ body, cVote, user, id, parentId }) {
     this.body = body;
     this.user = user;
     this.cVote = cVote;
     this.id = id;
     // this.commentTime = commentTime;
     this.parentId = parentId;
-    this.voters = voters;
+    // this.voters = voters;
   }
 
   get Template() {

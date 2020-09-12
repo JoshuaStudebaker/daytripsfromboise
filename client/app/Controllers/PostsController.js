@@ -3,19 +3,18 @@ import { postsService } from "../Services/PostsService.js";
 
 //Private
 function _draw() {
-  let ptemp = '<div class="row justify-content-around" >'
-  ProxyState.posts.forEach(p => ptemp += p.cardtemp)
-  ptemp += '</div>'
-  document.getElementById("post-cont").innerHTML= ptemp
-  console.log("drawing")
+  let ptemp = '<div class="row justify-content-around" >';
+  ProxyState.posts.forEach((p) => (ptemp += p.cardtemp));
+  ptemp += "</div>";
+  document.getElementById("post-cont").innerHTML = ptemp;
+  console.log("drawing");
 }
 
 function _drawactive() {
-  document.getElementById("post-cont").innerHTML= ProxyState.activePost.Active
-
+  document.getElementById("post-cont").innerHTML = ProxyState.activePost.Active;
 }
 
-function _drawForm(){
+function _drawForm() {
   document.getElementById("post-cont").innerHTML = `
   <div class=" d-flex justify-content-center">
             <form class="form card col-10" onsubmit="app.postsController.addPost()">
@@ -46,69 +45,70 @@ function _drawForm(){
                 <button type="submit" class="btn btn-primary"> go</button>
             </form>
         </div>
-  `
+  `;
 }
 
 //Public
 export default class PostsController {
   constructor() {
-    this.getPost()
+    this.getPost();
     ProxyState.on("posts", _draw);
   }
 
-  getPost(){
+  getPost() {
     try {
-      postsService.getPost()
+      postsService.getPost();
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   }
   addPost() {
-    event.preventDefault()
-    console.log("controller")
-    let data = event.target
+    event.preventDefault();
+    console.log("controller");
+    let data = event.target;
     let nPost = {
-      title:  data.title.value,
+      title: data.title.value,
       imgUrl: data.imgUrl.value,
       placeName: data.placeName.value,
       description: data.description.value,
       distance: data.distance.value,
       time: data.time.value,
       pVote: 0,
-    }
+    };
     try {
-      console.log(nPost)
-      postsService.addPost(nPost)
+      console.log(nPost);
+      postsService.addPost(nPost);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   }
 
   removePost(_id) {
     try {
-      postsService.removePost(_id)
+      postsService.removePost(_id);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   }
 
   focusPost(_id) {
-    postsService.focusPost(_id)
-    _drawactive()
-
+    postsService.focusPost(_id);
+    _drawactive();
+    console.log("focus-comments", ProxyState.comments);
   }
 
-  createpost(){ 
-    ProxyState.formstate = !ProxyState.formstate
-    if(!ProxyState.formstate){
-      _drawForm()
-    }else{
-      _draw()
+  createpost() {
+    ProxyState.formstate = !ProxyState.formstate;
+    console.log("toggle-comments", ProxyState.comments);
+    if (!ProxyState.formstate) {
+      _drawForm();
+    } else {
+      _draw();
     }
   }
 
-  reset(){
-    ProxyState.formstate = true
-    _draw()
+  reset() {
+    ProxyState.formstate = true;
+    _draw();
   }
 }
