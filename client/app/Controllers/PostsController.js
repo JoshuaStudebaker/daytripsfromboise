@@ -114,5 +114,6 @@ export default class PostsController {
 
   vote(value){
     postsService.vote(value)
+    _drawactive()
   }
 }

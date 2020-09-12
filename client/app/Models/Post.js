@@ -5,7 +5,7 @@ export default class Post {
     placeName,
     description,
     distance,
-    time,https://github.com/JoshuaStudebaker/daytripsfromboise/pulse
+    time,
     user,
     pVote,
     _id,
