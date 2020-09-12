@@ -14,7 +14,10 @@ class AppState extends EventEmitter {
   comments = [];
   activePost = null;
 
+
+  formstate = true;
   activeComments = [];
+
 }
 
 export const ProxyState = new Proxy(new AppState(), {

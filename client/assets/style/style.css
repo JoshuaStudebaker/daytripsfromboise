@@ -1,0 +1,26 @@
+.appcard{
+  height: 35vh;
+  width: 35vw;
+}
+
+.post-body{
+  height: 50vh;
+}
+
+.card-img{
+  max-width: 100%;
+  max-height: 100%;
+  background-position: center center;
+  background-size: cover;
+}
+
+.img-cont{
+  min-height: 100%;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.shadow{
+  box-shadow: .2em .2em .4em var(--dark);
+}
