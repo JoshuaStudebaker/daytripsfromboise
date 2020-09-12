@@ -30,7 +30,7 @@ export default class Post{
       <div class="img-cont d-flex flex-column justify-content-end align-items-center" style="background-image: url('${this.imgUrl}');">
         <h3 class="text-center text-light">Distance: ${this.distance} ~ Time: ${this.time}</h3>
         <div class="d-flex justify-content-between align-items-center">
-        <p class= "text-light"><i class="fas fa-arrow-alt-circle-up fa-lg"></i>${this.pVote}<i class="fas fa-arrow-alt-circle-down fa-lg"></i></p></div>
+        <p class= "text-light"><i class="fas fa-arrow-alt-circle-up fa-lg" onclick="app.postsController.vote(1)"></i>${this.pVote}<i class="fas fa-arrow-alt-circle-down fa-lg" onclick="app.postsController.vote(-1)"></i></p></div>
         </div>
     </div>
     <div class="col-5 card bg-secondary shadow">
