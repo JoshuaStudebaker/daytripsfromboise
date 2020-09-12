@@ -57,7 +57,6 @@ export class PostsController extends BaseController {
 
   async edit(req, res, next) {
     try {
-      req.body.creatorEmail = req.userInfo.email;
       req.body.id = req.params.id;
       let update = await postsService.edit(req.body);
       res.send(update);
