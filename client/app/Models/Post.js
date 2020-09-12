@@ -21,10 +21,23 @@ export default class Post {
     this.pVote = pVote;
     this._id = _id;
     this.posttime = posttime;
+    this.timeIcon = this.findicon()
+  }
+  findicon() {
+    if(this.time == 'Short'){
+      return `<i class="fas fa-hourglass-start"></i>`
+    }
+    if(this.time == 'Medium'){
+      return `<i class="fas fa-hourglass-half"></i>`
+    }
+    if(this.time == 'Long'){
+      return `<i class="fas fa-hourglass-end"></i>`
+    }
   }
   get cardtemp(){
+    let order = 0 - this.pVote
     return`
-    <div class="card shadow text-white col-3 appcard m-1 card-img order-${this.pVote}" style="background-image: url(${this.imgUrl})" onclick="app.postsController.focusPost('${this._id}')">
+    <div class="card shadow text-white col-3 appcard m-1 card-img order-${order}" style="background-image: url(${this.imgUrl})" onclick="app.postsController.focusPost('${this._id}')">
 
         <div class="card-img-overlay">
           <h4 class="card-title">${this.title}</h4>
@@ -39,7 +52,7 @@ export default class Post {
     <section class="row p-2 justify-content-center ">
     <div class="col-5 text-center post-body">
       <div class="img-cont d-flex flex-column justify-content-end align-items-center" style="background-image: url('${this.imgUrl}');">
-        <h3 class="text-center text-light">Distance: ${this.distance} ~ Time: ${this.time}</h3>
+        <h3 class="text-center text-light">Distance: ${this.distance} ~ ${this.timeIcon}</h3>
         <div class="d-flex justify-content-between align-items-center">
         <p class= "text-light"><i class="fas fa-arrow-alt-circle-up fa-lg" onclick="app.postsController.vote(1)"></i>${this.pVote}<i class="fas fa-arrow-alt-circle-down fa-lg" onclick="app.postsController.vote(-1)"></i></p></div>
         </div>

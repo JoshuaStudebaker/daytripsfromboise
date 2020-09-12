@@ -3,7 +3,7 @@ import { postsService } from "../Services/PostsService.js";
 
 //Private
 function _draw() {
-  let ptemp = '<div class="row justify-content-around" >';
+  let ptemp = '<div class="row justify-content-around d-flex" >';
   ProxyState.posts.forEach((p) => (ptemp += p.cardtemp));
   ptemp += "</div>";
   document.getElementById("post-cont").innerHTML = ptemp;
