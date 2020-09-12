@@ -52,11 +52,12 @@ export default class CommentsController {
     }
   }
 
-  likeComment(commentId) {
+  likeComment(value, commentId) {
     try {
-      commentsService.likeComment(commentId);
+      commentsService.likeComment(value, commentId);
     } catch (error) {
       console.error(error);
     }
+    _drawComments();
   }
 }
