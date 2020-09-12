@@ -31,9 +31,18 @@
 
 
 .shadow{
-  box-shadow: .2em .2em .4em var(--dark);
+  box-shadow: 2em 2em var(--dark);
 }
 
 .text-shadow{
   text-shadow: .1em .1em var(--dark);
 }
+
+
+body{
+  background-image: url(https://images.unsplash.com/photo-1525159988908-6e5ae7eeeaea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
